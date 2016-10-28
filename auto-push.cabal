@@ -1,0 +1,43 @@
+name:                auto-push
+version:             0.1.0.0
+synopsis:            Automatically test and merge commits
+-- description:         
+homepage:            http://github.com/bgamari/auto-push
+license:             BSD3
+license-file:        LICENSE
+author:              Ben Gamari
+maintainer:          ben@well-typed.com
+category:            Development
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  other-modules:       Phabricator.Utils
+  exposed-modules:     Phabricator.Types
+                       Phabricator.Phid
+                       Phabricator.Harbormaster
+  other-extensions:    OverloadedStrings, GeneralizedNewtypeDeriving
+  build-depends:       base >=4.9 && <4.10,
+                       lens >=4.14 && <4.15,
+                       wreq >=0.4 && <0.5,
+                       bytestring >=0.10 && <0.11,
+                       text >=1.2 && <1.3,
+                       containers >=0.5 && <0.6,
+                       unordered-containers >=0.2 && <0.3,
+                       aeson >=1.0 && <1.1
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+ 
+executable auto-push
+  main-is:             AutoPush.hs
+  -- other-modules:       
+  other-extensions:    OverloadedStrings, GeneralizedNewtypeDeriving
+  build-depends:       base >=4.9 && <4.10,
+                       auto-push,
+                       bytestring >=0.10 && <0.11,
+                       text >=1.2 && <1.3,
+                       containers >=0.5 && <0.6,
+                       unordered-containers >=0.2 && <0.3,
+                       aeson >=1.0 && <1.1,
+                       optparse-applicative >= 0.12
+  default-language:    Haskell2010
